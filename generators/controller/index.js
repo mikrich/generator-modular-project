@@ -24,7 +24,21 @@ module.exports = yeoman.NamedBase.extend({
         name: 'confirmController',
         message: 'Please confirm \n  Controller Name - ' + this.formattedName + '\n  Controller Location - ' + process.cwd(),
         default: true
-      },
+      }
+    ];
+
+    this.prompt(prompts, function (props) {
+      if(props.confirmController) {
+        done();
+      } else {
+        this.log('controller creation aborted!');
+      }
+    }.bind(this));
+  },
+
+  confirmModule: function() {
+    var done = this.async();
+    var prompts = [
       {
         type: 'input',
         name: 'parentModuleName',
@@ -34,16 +48,11 @@ module.exports = yeoman.NamedBase.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      if(props.confirmController) {
-        //update module name with changes........
-        this.moduleName = props.parentModuleName;
-        done();
-      } else {
-        this.log('controller creation aborted!');
-      }
+      this.moduleName = props.parentModuleName;
+      done();
     }.bind(this));
-
   },
+
 
   createController: function() {
     this.sourceRoot(path.join(this.sourceRoot(), '../../templates'));
