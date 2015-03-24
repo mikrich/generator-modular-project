@@ -1,0 +1,38 @@
+{
+  "name": "generator-modular-project",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "mikrich/generator-modular-project",
+  "author": {
+    "name": "Michael Richardson",
+    "email": "michael@mjrichardson.com.au",
+    "url": "https://github.com/mikrich"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^0.5.0",
+    "json-update": "^1.2.0",
+    "request": "^2.53.0",
+    "yeoman-generator": "^0.18.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

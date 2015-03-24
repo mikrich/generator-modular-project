@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <!--(if target unoptimised)><!-->
+    {{vendorScripts}}
+
+    <!-- start modules -->
+    <!-- end modules -->
+
+  <!--<!(endif)-->
+
+  <!--(if target optimised)><!-->
+    <script src="js/app.min.js"></script>
+  <!--<!(endif)-->
+</body>
+</html>
