@@ -21,7 +21,7 @@ npm install -g generator-modular-project
 Finally, initiate the generator:
 
 ```bash
-yo modular-project:project-name
+yo modular-project
 ```
 
 ### Yeoman Sub-Generators

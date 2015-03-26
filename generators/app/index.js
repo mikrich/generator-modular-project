@@ -13,16 +13,6 @@ module.exports = yeoman.Base.extend({
     this.sourceRoot(path.join(this.sourceRoot(), '../../templates'));
   },
 
-  constructor: function() {
-    yeoman.generators.Base.apply(this, arguments);
-
-    //make appName a required arguement..
-    this.argument('appName', { type: String, required: true });
-    //camelize it..
-    this.appName = this._.camelize(this.appName);
-
-  },
-
   initializing: function () {
 
     var done = this.async();
@@ -48,11 +38,12 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'projectName',
         message: 'Your project name',
-        default: this.appName
+        default: this.appname
       }
     ];
 
     this.prompt(prompts, function (props) {
+      this.appname = props.projectName;
       done();
     }.bind(this));
 
@@ -87,19 +78,19 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
-        { title: this.appName  }
+        { title: this.appname  }
       );
 
       this.fs.copyTpl(
         this.templatePath('_bower.json'),
         this.destinationPath('bower.json'),
-        { title: this.appName  }
+        { title: this.appname  }
       );
 
       this.fs.copyTpl(
         this.templatePath('index.html'),
         this.destinationPath('index.html'),
-        { title: 'base template for ' + this.appName  }
+        { title: 'base template for ' + this.appname  }
       );
 
     }
